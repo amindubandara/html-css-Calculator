@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title> Bill calculate</title>
+    </head>
+    <body>
+        <h1> Delivery Order</h1>
+        <form>
+            <label>customer:</label><br>
+            <input type="text" name="customer" id="customer">
+            <br><br>
+            <label>Location:</label><br>
+            <input type="text"name="location" id="location">
+            <br><br>
+            <label> country:</label><br>
+            <select name="country" id="country">
+                <option value="LK">Sri Lanka</option>
+                <option value="IN">india</option>
+                <option value="Aus">Australia</option>
+                <option value="Can">Canada</option>
+            </select>
+            <br><br>
+            <label>weight:</label><br>
+            <input type="text"name="weight"id ="weight">
+            <br><br>
+            <label>Express Delivery:</label><br>
+            <input type="radio"name="Express Delivery"id="exp_yes" value="yes" checked>Yes
+            <input type="radio"name="Express Delivery"id="Eexp_No" value="no"checked>No 
+            &nbsp;&nbsp;
+            <br><br>
+            <label>Agree to terms and conditions</label><br>
+            <input type="checkbox"name="agree"id="agree"value="true"><br><br>
+            <button type="button" onclick="calculate()">calculate</button>
+
+        </form>
+        <script>
+            function calculate() {
+                let customer = document.getElementById('customer').value;
+                let location = document.getElementById('location').value;
+                let country = document.getElementById('country').value;
+                let weight = document.getElementById('weight').value;
+                let express_charges=0;
+                if(document.getElementById('exp_yes').checked){
+                express_charges=100;
+                }
+                let agree= false;
+                if(document.getElementById('agree').checked){
+                agree = true;
+                }
+                let rate=0;
+                if(country=="LK"){
+                    rate=20;
+                }
+                else if (country=="IN"){
+                    rate=40;
+                }
+                else{rate=100;}
+                let cost = (weight * rate)+express_charges;
+                alert("customer:"+customer+"\n drop location"+location+"\ncountry"+country+"\ncost"+cost);
+                //alert("Customer: " + customer + "\nLocation: " + location + "\nCountry: " + country + "\nCost: " + cost);
+                //alert("country:"+country);
+            
+            }
+        </script>
+    </body>
+</html>
