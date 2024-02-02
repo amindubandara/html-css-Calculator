@@ -1,3 +1,4 @@
+//simple Bill Calculater
 <html>
     <head>
         <title> Bill calculate</title>
